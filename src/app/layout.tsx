@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import '@/styles/globals.css'
 import NavMenu from '@/components/nav-menu'
 import Footer from '@/components/footer'
+import { cn } from '@/lib/utils'
 // import { VercelToolbar } from '@vercel/toolbar/next'
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={GeistSans.className}>
+      <body className={cn(GeistSans.className, "bg-background")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
