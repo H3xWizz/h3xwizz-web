@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import '@/styles/globals.css'
 import NavMenu from '@/components/nav-menu'
 import { cn } from '@/lib/utils'
+import Footer from '@/components/footer'
 
 export const metadata: Metadata = {
   title: 'H3xWizz',
@@ -26,9 +27,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <NavMenu/>
-          <main className="h-full">
+          <main className={'h-[calc(100vh-6rem)] mx-[calc(100vh-30rem)]'}>
             {children}
           </main>
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>

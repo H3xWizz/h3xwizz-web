@@ -6,13 +6,14 @@ import {
     NavigationMenuLink,
     NavigationMenuList,
   } from "@/components/ui/navigation-menu"
-import NavItems from "@/nav-items"
+import NavItems from "@/modules/nav-items"
 import Link from "next/link"
 import Image from "next/image"
+import { ThemeToggle } from "./theme-toggle"
 
 export default function NavMenu() {
     return (
-        <div className={"h-12 w-screen flex justify-around items-center"}>
+        <div className={"h-12 w-screen px-[calc(100vh-35rem)] flex justify-between items-center"}>
             <Image src={"/logo.svg"} height={50} width={50} alt="Logo"/>
             <NavigationMenu>
                 <NavigationMenuList className={"flex gap-3 items-center"}>
