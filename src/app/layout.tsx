@@ -3,8 +3,8 @@ import { GeistSans } from 'geist/font'
 import { ThemeProvider } from '@/components/theme-provider'
 import '@/styles/globals.css'
 import NavMenu from '@/components/nav-menu'
-import { cn } from '@/lib/utils'
 import Footer from '@/components/footer'
+// import { VercelToolbar } from '@vercel/toolbar/next'
 
 export const metadata: Metadata = {
   title: 'H3xWizz',
@@ -17,6 +17,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // const shouldInjectToolbar = useIsUserEmployee();
+
   return (
     <html lang="en">
       <body className={GeistSans.className}>
@@ -31,6 +33,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer/>
+          {/* {shouldInjectToolbar && <VercelToolbar />} */}
         </ThemeProvider>
       </body>
     </html>
