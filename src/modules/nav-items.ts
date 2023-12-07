@@ -1,10 +1,32 @@
-import { NavItemType } from "@/types/nav-items-types";
+import { NavItemsModule } from "@/types/nav-types";
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
+import { HomeIcon, UserIcon } from '@heroicons/react/24/outline'
+import {Code2Icon, PencilIcon} from "lucide-react";
 
-const NavItems: NavItemType = [
+export const NavItems: NavItemsModule[] = [
     {
+        name: "Home",
         href: "/",
-        slug: "Home"
+        icon: HomeIcon
     },
+    {
+        name: "About me",
+        href: "/",
+        icon: UserIcon
+    },
+    {
+        name: "Projects",
+        href: "/",
+        icon: Code2Icon
+    },
+    {
+        name: "Blog",
+        href: "/",
+        icon: PencilIcon
+    },
+    {
+        name: "Contact",
+        href: "/",
+        icon: EnvelopeIcon
+    }
 ]
-
-export default NavItems
