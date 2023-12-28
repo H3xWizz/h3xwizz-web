@@ -11,12 +11,12 @@ export const NavItems: NavItemsModule[] = [
     },
     {
         name: "About me",
-        href: "/",
+        href: "/about-me",
         icon: UserIcon
     },
     {
         name: "Projects",
-        href: "/",
+        href: "/projects",
         icon: Code2Icon
     },
     {
@@ -26,7 +26,7 @@ export const NavItems: NavItemsModule[] = [
     },
     {
         name: "Contact",
-        href: "/",
+        href: "/contact",
         icon: EnvelopeIcon
     }
 ]
