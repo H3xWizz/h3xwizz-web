@@ -43,7 +43,6 @@ export default function Navbar() {
                                         :
                                     <Button
                                         variant={"ghost"}
-                                        size={"icon"}
                                         className={'flex-shrink-0'}
                                         >
                                         <div className={'flex h-fit w-fit justify-center items-center gap-3'}>
