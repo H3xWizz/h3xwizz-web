@@ -2,13 +2,9 @@
 
 import {
     NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuIndicator,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
-    NavigationMenuTrigger, navigationMenuTriggerStyle,
-    NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
 import { NavItems } from "@/modules/nav-items"
 import Link from "next/link"
