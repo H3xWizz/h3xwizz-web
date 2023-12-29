@@ -5,6 +5,7 @@ import { GeistSans } from 'geist/font/sans';
 import {cn} from "@/lib/utils";
 import { ThemeProvider } from '@/components/theme-provider';
 import Navbar from "@/components/navbar";
+import React from "react";
 
 export const metadata: Metadata = {
   title: 'H3xWizz',
