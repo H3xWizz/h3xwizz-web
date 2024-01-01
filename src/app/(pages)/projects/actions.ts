@@ -15,7 +15,7 @@ export default async function getRepos() {
 
         console.log(fetched)
 
-        fetched.map(repo => {
+        fetched.map((repo: any) => {
             data.push({
                 id: repo.id,
                 name: repo.name,

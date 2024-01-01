@@ -41,7 +41,7 @@ export default async function ProjectTable() {
                 </TableHeader>
                 <TableBody>
                     {data.map(item => (
-                        <Link href={item.url} target='_blank' legacyBehavior>
+                        <Link href={item.url} target='_blank' legacyBehavior key={item.id}>
                             <TableRow key={item.id} className="border-border cursor-pointer">
                                 <TableCell className="font-medium">{item.name.replace(/-/g, ' ').toUpperCase()}</TableCell>
                                 <TableCell>{item.description}</TableCell>
