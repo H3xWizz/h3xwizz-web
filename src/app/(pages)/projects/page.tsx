@@ -1,4 +1,4 @@
-import ProjectTable from "@/app/projects/components/project-table";
+import ProjectTable from "@/app/(pages)/projects/components/project-table";
 
 export default function Page() {
 

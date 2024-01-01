@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: 'H3xWizz - Official Website',
 }
 
+export const revalidate = 1
+
 export default function RootLayout({
   children,
 }: {
