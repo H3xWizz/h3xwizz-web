@@ -1,7 +1,7 @@
 import ProjectTable from "@/app/(pages)/projects/components/project-table";
 import getRepos from "@/app/(pages)/projects/actions";
 
-const revalidate = 1
+const revalidate = 14400
 
 export default async function Page() {
     const data = await getRepos()
