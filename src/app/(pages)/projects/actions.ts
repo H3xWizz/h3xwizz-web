@@ -26,15 +26,15 @@ export default async function getRepos() {
             })
         })
 
-        return NextResponse.json({
+        return {
             status: true,
             data: data,
             message: 'OK'
-        })
+        }
     } catch (e) {
-        return NextResponse.json({
+        return {
             status: false,
             message: e
-        })
+        }
     }
 }

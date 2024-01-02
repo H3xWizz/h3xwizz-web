@@ -16,17 +16,16 @@ import useSWR from "swr";
 import {fetcher} from "@/lib/fetcher";
 import {Project} from "@/types/project";
 import formatDate from "@/lib/format-date";
-import {Button} from "@/components/ui/button";
 import Link from "next/link";
 
-export default async function ProjectTable() {
-    const { data: response, error, isLoading } = useSWR('/api/repos', fetcher);
+type Props = {
+    data: Project[]
+}
 
-    if (error) return <div>Error</div>;
+export default async function ProjectTable({data}: Props) {
+    const finalData: Project[] = data || [];
 
-    const data: Project[] = response?.data || [];
-
-    console.log(data);
+    console.log(finalData);
 
     return (
         <div className={'max-h-[50vh] w-[75vw] border-[1px] border-border rounded overflow-y-auto'}>
