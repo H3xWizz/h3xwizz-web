@@ -15,6 +15,9 @@ import { Button } from "@/components/ui/button";
 import {Card, CardContent, CardFooter} from "@/components/ui/card";
 import {Textarea} from "@/components/ui/textarea";
 import sendMail from "@/app/(pages)/contact/actons";
+import {toast} from "react-toastify";
+import {useRef, useState} from "react";
+import {Loader2} from "lucide-react";
 
 const formSchema = z
     .object({
@@ -60,6 +63,7 @@ const formSchema = z
     )
 
 export default function Home() {
+    const [disabled, setDisabled] = useState(false)
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -69,16 +73,26 @@ export default function Home() {
         },
     });
 
-    const handleSubmit = (values: z.infer<typeof formSchema>) => {
-        sendMail(values)
+    const toastId = useRef<any>(null)
+    const notify = () => toastId.current = toast("Sending message...", {autoClose: false, icon: () => <Loader2 className={'animate-spin'}/> })
+    const update = (status: boolean) => status ?
+        toast.update(toastId.current, { render: "Message sending success", icon: true, type: toast.TYPE.SUCCESS, autoClose: 5000 })
+        : toast.update(toastId.current, { render: "Message sending error", icon: true, type: toast.TYPE.ERROR, autoClose: 5000 })
+
+    const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+        setDisabled(true)
+        notify()
+        const sendRes = await sendMail(values)
+        update(sendRes.status)
+        setDisabled(false)
     };
 
     return (
-        <Card className={'border-border pt-4 h-max w-max'}>
+        <Card className={'border-border pt-4 h-max w-1/4'}>
             <Form {...form}>
                 <form
                     onSubmit={form.handleSubmit(handleSubmit)}
-                    className="max-w-md w-full flex flex-col"
+                    className="w-full flex flex-col"
                 >
                     <CardContent className={'flex flex-col gap-3'}>
                         <FormField
@@ -90,7 +104,6 @@ export default function Home() {
                                         <FormLabel className={'text-accent-foreground'}>Contact email</FormLabel>
                                         <FormControl>
                                             <Input
-                                                className={'w-[20vw]'}
                                                 type="email"
                                                 {...field}
                                             />
@@ -109,7 +122,6 @@ export default function Home() {
                                         <FormLabel className={'text-accent-foreground'}>Name</FormLabel>
                                         <FormControl>
                                             <Input
-                                                className={'w-[20vw]'}
                                                 type="text"
                                                 {...field} />
                                         </FormControl>
@@ -126,7 +138,7 @@ export default function Home() {
                                     <FormItem>
                                         <FormLabel className={'text-accent-foreground'}>Message</FormLabel>
                                         <FormControl>
-                                            <Textarea className={'resize-none h-[20vh] w-[20vw]'} {...field} />
+                                            <Textarea className={'resize-none h-[20vh]'} {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -135,8 +147,8 @@ export default function Home() {
                         />
                     </CardContent>
                     <CardFooter>
-                        <Button type="submit" variant={"outline"} className="w-full">
-                            Submit
+                        <Button disabled={disabled} type="submit" variant={"outline"} className="w-full">
+                            Send
                         </Button>
                     </CardFooter>
                 </form>

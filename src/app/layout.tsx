@@ -6,6 +6,7 @@ import {cn} from "@/lib/utils";
 import { ThemeProvider } from '@/components/theme-provider';
 import Navbar from "@/components/navbar";
 import React from "react";
+import Toast from "@/components/toast";
 
 export const metadata: Metadata = {
   title: {
@@ -25,6 +26,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn(GeistSans.className, 'bg-background')}>
@@ -38,6 +40,7 @@ export default function RootLayout({
               <Navbar/>
               {children}
             </div>
+          <Toast/>
         </ThemeProvider>
       </body>
     </html>
