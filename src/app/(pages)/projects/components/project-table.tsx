@@ -12,20 +12,15 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import useSWR from "swr";
-import {fetcher} from "@/lib/fetcher";
 import {Project} from "@/types/project";
 import formatDate from "@/lib/format-date";
-import {Button} from "@/components/ui/button";
 import Link from "next/link";
 
-export default async function ProjectTable() {
-    const { data: response, error, isLoading } = useSWR('/api/repos', fetcher);
+type Props = {
+    data: Project[]
+}
 
-    if (error) return <div>Error</div>;
-
-    const data: Project[] = response?.data || [];
-
+export default async function ProjectTable({data}: Props) {
     console.log(data);
 
     return (

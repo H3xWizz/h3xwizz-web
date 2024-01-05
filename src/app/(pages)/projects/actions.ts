@@ -6,9 +6,7 @@ import {NextResponse} from "next/server";
 
 export default async function getRepos() {
     try {
-        const fetched = await fetch('https://api.github.com/users/H3xWizz/repos?type=owner&sort=updated', {
-            cache: 'no-store'
-        })
+        const fetched = await fetch('https://api.github.com/users/H3xWizz/repos?type=owner&sort=updated')
             .then(res => res.json())
 
         const data: Project[] = []
@@ -26,15 +24,15 @@ export default async function getRepos() {
             })
         })
 
-        return NextResponse.json({
+        return {
             status: true,
             data: data,
             message: 'OK'
-        })
+        }
     } catch (e) {
-        return NextResponse.json({
+        return {
             status: false,
             message: e
-        })
+        }
     }
 }
