@@ -1,8 +1,6 @@
 "use server"
 
-import {octokit} from "@/lib/octokit";
 import {Project} from "@/types/project";
-import {NextResponse} from "next/server";
 
 export default async function getRepos() {
     try {
