@@ -1,5 +1,10 @@
 import ProjectTable from "@/app/(pages)/projects/components/project-table";
 import getRepos from "@/app/(pages)/projects/actions";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: 'Projects',
+}
 
 const revalidate = 600
 

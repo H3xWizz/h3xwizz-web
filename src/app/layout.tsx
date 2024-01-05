@@ -8,8 +8,14 @@ import Navbar from "@/components/navbar";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: 'H3xWizz',
+  title: {
+    template: 'H3xWizz | %s',
+    default: 'H3xWizz',
+  },
   description: 'H3xWizz - Official Website',
+  icons: {
+    icon: '/logo-light.png'
+  }
 }
 
 export const revalidate = 1

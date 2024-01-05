@@ -1,7 +1,7 @@
 import { NavItemsModule } from "@/types/nav-types";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { HomeIcon, UserIcon } from '@heroicons/react/24/outline'
-import {Code2Icon, PencilIcon} from "lucide-react";
+import {Code2Icon} from "lucide-react";
 
 export const NavItems: NavItemsModule[] = [
     {
@@ -18,11 +18,6 @@ export const NavItems: NavItemsModule[] = [
         name: "Projects",
         href: "/projects",
         icon: Code2Icon
-    },
-    {
-        name: "Blog",
-        href: "/",
-        icon: PencilIcon
     },
     {
         name: "Contact",

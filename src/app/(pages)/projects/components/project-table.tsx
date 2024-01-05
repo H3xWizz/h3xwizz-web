@@ -17,8 +17,6 @@ type Props = {
 }
 
 export default async function ProjectTable({data}: Props) {
-    console.log(data);
-
     return (
         <div className={'max-h-[50vh] w-[75vw] border-[1px] border-border rounded overflow-y-auto'}>
             <Table>
