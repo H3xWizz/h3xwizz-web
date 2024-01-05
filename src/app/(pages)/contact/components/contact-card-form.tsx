@@ -27,10 +27,7 @@ const formSchema = z
     })
     .refine(
         (data) => {
-            if (data.email === "" || data.email === " ") {
-                return false;
-            }
-            return true;
+            return !(data.email === "" || data.email === " ");
         },
         {
             message: "Email is required",
@@ -39,10 +36,7 @@ const formSchema = z
     )
     .refine(
         (data) => {
-            if (data.name === "" || data.name === " ") {
-                return false;
-            }
-            return true;
+            return !(data.name === "" || data.name === " ");
         },
         {
             message: "Name is required",
@@ -51,10 +45,7 @@ const formSchema = z
     )
     .refine(
         (data) => {
-            if (data.content === "" || data.content === " ") {
-                return false;
-            }
-            return true;
+            return !(data.content === "" || data.content === " ");
         },
         {
             message: "Content is required",
