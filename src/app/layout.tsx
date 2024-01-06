@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
-
+import { SpeedInsights } from '@vercel/speed-insights/dist/next/index';
+import { Analytics } from '@vercel/analytics/react';
 import { GeistSans } from 'geist/font/sans';
 import {cn} from "@/lib/utils";
 import { ThemeProvider } from '@/components/theme-provider';
@@ -41,6 +42,8 @@ export default function RootLayout({
               {children}
             </div>
           <Toast/>
+          <Analytics/>
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
