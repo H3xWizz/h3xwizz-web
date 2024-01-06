@@ -14,7 +14,7 @@ export default async function sendMail(data: any) {
         })
 
         const mailOptions = {
-            from: data.email,
+            from: process.env.SMTP_EMAIL,
             to: process.env.SMTP_EMAIL_REC,
             subject: `${data.name} <${data.email}>`,
             text: data.content,
