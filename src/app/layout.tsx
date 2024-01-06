@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
-import { SpeedInsights } from '@vercel/speed-insights/dist/next/index';
+// @ts-ignore
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
 import { GeistSans } from 'geist/font/sans';
 import {cn} from "@/lib/utils";
