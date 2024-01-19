@@ -4,7 +4,11 @@ import {Project} from "@/types/project";
 
 export default async function getRepos() {
     try {
-        const fetched = await fetch('https://api.github.com/users/H3xWizz/repos?type=owner&sort=updated')
+        const fetched = await fetch('https://api.github.com/users/H3xWizz/repos?type=owner&sort=updated', {
+            next: {
+                revalidate: 600
+            }
+        })
             .then(res => res.json())
 
         const data: Project[] = []

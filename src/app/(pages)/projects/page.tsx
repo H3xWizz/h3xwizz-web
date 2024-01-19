@@ -6,8 +6,6 @@ export const metadata: Metadata = {
     title: 'Projects',
 }
 
-const revalidate = 600
-
 export default async function Page() {
     const repos = await getRepos()
 
