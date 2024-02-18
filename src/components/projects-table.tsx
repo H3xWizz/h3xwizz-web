@@ -18,7 +18,7 @@ type Props = {
 
 export default function ProjectsTable({data}: Props) {
     return (
-        <div className={'max-h-[50vh] w-[75vw] border-[1px] border-border rounded overflow-y-auto'}>
+        <div className={'max-h-[50vh] w-full border-[1px] border-border rounded overflow-y-auto'}>
             <Table>
                 <TableHeader>
                     <TableRow className="border-b border-border border-solid hover:bg-background">
