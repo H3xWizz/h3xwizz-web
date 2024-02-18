@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
+// @ts-ignore
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
 import { GeistSans } from 'geist/font/sans';
@@ -8,7 +9,6 @@ import { ThemeProvider } from '@/components/theme-provider';
 import Navbar from "@/components/navbar";
 import React from "react";
 import Toast from "@/components/toast";
-import Fotter from "@/components/fotter";
 
 export const metadata: Metadata = {
   title: {
@@ -32,12 +32,14 @@ export default function RootLayout({
       <body className={cn(GeistSans.className, 'bg-background')}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
+          enableSystem
           disableTransitionOnChange
           >
-            <Navbar/>
-            {children}
-            <Fotter/>
+            <div className={"flex"}>
+              <Navbar/>
+              {children}
+            </div>
           <Toast/>
           <Analytics/>
           <SpeedInsights />
