@@ -32,7 +32,7 @@ export default function RootLayout({
       <body className={cn(GeistSans.className, 'bg-background')}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           disableTransitionOnChange
           >
             <Navbar/>
