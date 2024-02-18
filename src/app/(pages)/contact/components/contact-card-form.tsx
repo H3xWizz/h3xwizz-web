@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {Card, CardContent, CardFooter} from "@/components/ui/card";
 import {Textarea} from "@/components/ui/textarea";
-import {sendMail} from "@/app/actions";
+import sendMail from "@/app/(pages)/contact/actons";
 import {toast} from "react-toastify";
 import {useRef, useState} from "react";
 import {Loader2} from "lucide-react";
@@ -53,7 +53,7 @@ const formSchema = z
         }
     )
 
-export default function ContactForm() {
+export default function Home() {
     const [disabled, setDisabled] = useState(false)
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -79,7 +79,7 @@ export default function ContactForm() {
     };
 
     return (
-        <Card className={'border-border pt-4 h-max w-1/2'}>
+        <Card className={'border-border pt-4 h-max w-1/4'}>
             <Form {...form}>
                 <form
                     onSubmit={form.handleSubmit(handleSubmit)}
