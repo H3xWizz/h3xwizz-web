@@ -1,7 +1,7 @@
-import Logo from "@/components/logo";
 import ProjectsTable from "@/components/projects-table";
 import {getRepos} from "@/app/actions";
 import ContactForm from "@/components/contact-form";
+import Image from "next/image";
 
 export default async function Page() {
     const repos = await getRepos()
@@ -9,7 +9,7 @@ export default async function Page() {
   return (
       <div className={'flex flex-col'}>
           <div id={'Hero'} className={'h-screen flex justify-between items-center mx-[20vw]'}>
-              <Logo size={250}/>
+              <Image src={'/logo-light.png'} alt={'logo'} width={250} height={250}/>
               <p className={'text-2xl font-bold'}>Server administrator / Programmer</p>
           </div>
           <div id={'About'} className={'h-screen mx-[20vw] text-center flex flex-col gap-6 justify-center items-center'}>
