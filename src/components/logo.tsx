@@ -10,7 +10,9 @@ type Props = {
 export default function Logo({
     size
 }: Props) {
-    const {theme} = useTheme()
+    const {resolvedTheme} = useTheme()
 
-    return <Image src={theme === 'dark' ? '/logo-light.png' : '/logo-dark.png'} alt={'Logo'} width={size} height={size}/>
+    return resolvedTheme === 'light'
+        ? <Image src={'/logo-dark.png'} alt={'Logo'} width={size} height={size}/>
+        : <Image src={'/logo-light.png'} alt={'Logo'} width={size} height={size}/>
 }
