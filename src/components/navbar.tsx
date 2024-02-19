@@ -7,12 +7,13 @@ import {
     NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
-import Image from "next/image";
+import {ThemeToggle} from "@/components/theme-toggle";
+import Logo from "@/components/logo";
 
 export default function Navbar() {
     return (
         <div className={'z-50 h-[3.5rem] w-screen border-b-[1px] border-border px-56 flex justify-between items-center backdrop-blur fixed'}>
-            <Image src={'/logo-light.png'} alt={'Logo'} width={25} height={25}/>
+            <Logo size={25}/>
             <NavigationMenu>
                 <NavigationMenuList className={'flex gap-4'}>
                     {NavItems.map(item => (
@@ -24,6 +25,7 @@ export default function Navbar() {
                     ))}
                 </NavigationMenuList>
             </NavigationMenu>
+            <ThemeToggle/>
         </div>
     );
 }
