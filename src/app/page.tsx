@@ -1,18 +1,16 @@
 import ProjectsTable from "@/components/projects-table";
-import {getRepos} from "@/app/actions";
 import ContactForm from "@/components/contact-form";
 import Logo from "@/components/logo";
 
 export default async function Page() {
-    const repos = await getRepos()
 
   return (
-      <div className={'flex flex-col'}>
-          <div id={'Hero'} className={'h-screen flex justify-between items-center mx-[20vw]'}>
+      <div className={'flex flex-col mx-[15vw] md:mx-[20vw]'}>
+          <div id={'Hero'} className={'h-screen flex flex-col justify-center gap-10 items-center'}>
               <Logo size={250}/>
-              <p className={'text-2xl font-bold'}>Server administrator / Programmer</p>
+              <p className={'hidden md:block text-2xl font-bold'}>Server administrator / Programmer</p>
           </div>
-          <div id={'About'} className={'h-screen mx-[20vw] text-center flex flex-col gap-6 justify-center items-center'}>
+          <div id={'About'} className={'h-screen text-center flex flex-col gap-6 justify-center items-center'}>
               <p className={'text-[2rem] font-bold'}>About</p>
               <p>Welcome to my website! My name is Ksawier, and I&apos;m a young programming enthusiast born in 2003. From an
                   early age, fascinated by technology, I dedicated myself to the art of coding, and today, I would like
@@ -26,11 +24,11 @@ export default async function Page() {
                   for visiting my website. I hope you find inspiration and interesting information in the realm of
                   programming.</p>
           </div>
-          <div id={'Projects'} className={'h-screen mx-[20vw] text-center flex flex-col gap-6 justify-center items-center'}>
+          <div id={'Projects'} className={'h-screen text-center flex flex-col gap-6 justify-center items-center'}>
               <p className={'text-[2rem] font-bold'}>Projects</p>
-              <ProjectsTable data={repos.data ?? []}/>
+              <ProjectsTable/>
           </div>
-          <div id={'Contact'} className={'h-screen mx-[20vw] text-center flex flex-col gap-6 justify-center items-center'}>
+          <div id={'Contact'} className={'h-screen text-center flex flex-col gap-6 justify-center items-center'}>
               <p className={'text-[2rem] font-bold'}>Contact</p>
               <ContactForm/>
           </div>

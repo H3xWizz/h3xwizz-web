@@ -9,23 +9,58 @@ import {
 import Link from "next/link";
 import {ThemeToggle} from "@/components/theme-toggle";
 import Logo from "@/components/logo";
+import {MenuIcon, XIcon} from "lucide-react";
+import {useState} from "react";
+import {cn} from "@/lib/utils";
 
 export default function Navbar() {
+    const [extended, setExtended] = useState(false)
+
     return (
-        <div className={'z-50 h-[3.5rem] w-screen border-b-[1px] border-border px-56 flex justify-between items-center backdrop-blur fixed'}>
-            <Logo size={25}/>
-            <NavigationMenu>
-                <NavigationMenuList className={'flex gap-4'}>
-                    {NavItems.map(item => (
-                        <NavigationMenuItem key={item.name}>
-                            <Link href={item.href}>
-                                <p className={'hover:text-muted-foreground transition-colors'}>{item.name}</p>
-                            </Link>
-                        </NavigationMenuItem>
-                    ))}
-                </NavigationMenuList>
-            </NavigationMenu>
-            <ThemeToggle/>
+        <div className={cn('z-50 w-screen border-b-[1px] border-border backdrop-blur fixed top-0 transition-all', !extended ? 'h-[3.5rem]' : 'h-screen bg-background')}>
+            {/*DESKTOP NAVBAR*/}
+            <div className={'hidden md:flex h-full w-full px-24 lg:px-48 justify-between items-center'}>
+                <Logo size={25}/>
+                <NavigationMenu>
+                    <NavigationMenuList className={'md:flex gap-4'}>
+                        {NavItems.map(item => (
+                            <NavigationMenuItem key={item.name}>
+                                <Link href={item.href}>
+                                    <p className={'hover:text-muted-foreground transition-colors'}>{item.name}</p>
+                                </Link>
+                            </NavigationMenuItem>
+                        ))}
+                    </NavigationMenuList>
+                </NavigationMenu>
+                <ThemeToggle/>
+            </div>
+            {/*MOBILE NAVBAR*/}
+            <div className={cn('md:hidden flex flex-col h-full w-full  transition-all', !extended ? 'justify-center' : 'justify-end')}>
+                <div className={'h-[3.5rem] w-full px-12 flex justify-between items-center'}>
+                    {!extended ? (
+                        <>
+                            <Logo size={25}/>
+                            <MenuIcon onClick={() => setExtended(true)}/>
+                        </>
+                    ) : (
+                        <>
+                            <Logo size={25}/>
+                            <XIcon onClick={() => setExtended(false)}/>
+                        </>
+                    )}
+                </div>
+                <NavigationMenu className={!extended ? 'hidden' : 'block'}>
+                    <NavigationMenuList className={'flex flex-col'}>
+                        {NavItems.map(item => (
+                            <NavigationMenuItem key={item.name}>
+                                <Link href={item.href} className={'h-[3.5rem] w-screen px-12 border-t-[1px] border-b-[1px] border-border flex items-center hover:text-black hover:bg-foreground transition-colors'} onClick={() => setExtended(false)}>
+                                    <p>{item.name}</p>
+                                </Link>
+                            </NavigationMenuItem>
+                        ))}
+                    </NavigationMenuList>
+                </NavigationMenu>
+            </div>
         </div>
     );
 }

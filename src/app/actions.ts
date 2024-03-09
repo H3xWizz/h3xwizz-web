@@ -61,7 +61,6 @@ export async function getRepos() {
         return {
             status: true,
             data: data,
-            message: 'OK'
         }
     } catch (e) {
         return {
