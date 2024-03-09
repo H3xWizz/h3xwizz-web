@@ -35,7 +35,7 @@ export default function Navbar() {
                 <ThemeToggle/>
             </div>
             {/*MOBILE NAVBAR*/}
-            <div className={cn('md:hidden flex flex-col transition-all', !extended ? 'h-full justify-center' : 'h-screen flex-col-reverse justify-around')}>
+            <div className={cn('md:hidden flex flex-col transition-all', !extended ? 'h-[3.5rem] justify-center' : 'h-screen flex-col-reverse justify-around')}>
                 <div className={cn('h-[3.5rem] flex justify-around items-center', extended && 'border-t-[1px] border-border')}>
                     {!extended ? (
                         <>

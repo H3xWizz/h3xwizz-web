@@ -5,7 +5,7 @@ import Logo from "@/components/logo";
 export default async function Page() {
 
   return (
-      <div className={'flex flex-col mx-[10vw] md:mx-[20vw]'}>
+      <div className={'flex flex-col px-[10vw] md:px-[20vw]'}>
           <div id={'Hero'} className={'h-screen flex flex-col md:flex-row justify-center md:justify-between gap-10 text-center items-center'}>
               <Logo size={250}/>
               <p className={'text-2xl font-bold'}>Server administrator / Programmer</p>
