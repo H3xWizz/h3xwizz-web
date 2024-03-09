@@ -19,7 +19,7 @@ export default function Navbar() {
     return (
         <div className={cn('z-50 w-screen border-b-[1px] border-border backdrop-blur fixed top-0 transition-all', !extended ? 'h-[3.5rem]' : 'h-screen bg-background')}>
             {/*DESKTOP NAVBAR*/}
-            <div className={'hidden md:flex h-full w-full px-24 lg:px-48 justify-between items-center'}>
+            <div className={'hidden md:flex h-full w-full px-48 justify-between items-center'}>
                 <Logo size={25}/>
                 <NavigationMenu>
                     <NavigationMenuList className={'md:flex gap-4'}>
@@ -35,8 +35,8 @@ export default function Navbar() {
                 <ThemeToggle/>
             </div>
             {/*MOBILE NAVBAR*/}
-            <div className={cn('md:hidden flex flex-col h-full w-full  transition-all', !extended ? 'justify-center' : 'justify-end')}>
-                <div className={'h-[3.5rem] w-full px-12 flex justify-between items-center'}>
+            <div className={cn('md:hidden flex flex-col transition-all', !extended ? 'h-full justify-center' : 'h-screen flex-col-reverse justify-around')}>
+                <div className={cn('h-[3.5rem] flex justify-around items-center', extended && 'border-t-[1px] border-border')}>
                     {!extended ? (
                         <>
                             <Logo size={25}/>
@@ -45,6 +45,7 @@ export default function Navbar() {
                     ) : (
                         <>
                             <Logo size={25}/>
+                            <ThemeToggle/>
                             <XIcon onClick={() => setExtended(false)}/>
                         </>
                     )}

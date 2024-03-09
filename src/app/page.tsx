@@ -5,10 +5,10 @@ import Logo from "@/components/logo";
 export default async function Page() {
 
   return (
-      <div className={'flex flex-col mx-[15vw] md:mx-[20vw]'}>
-          <div id={'Hero'} className={'h-screen flex flex-col justify-center gap-10 items-center'}>
+      <div className={'flex flex-col mx-[10vw] md:mx-[20vw]'}>
+          <div id={'Hero'} className={'h-screen flex flex-col md:flex-row justify-center md:justify-between gap-10 text-center items-center'}>
               <Logo size={250}/>
-              <p className={'hidden md:block text-2xl font-bold'}>Server administrator / Programmer</p>
+              <p className={'text-2xl font-bold'}>Server administrator / Programmer</p>
           </div>
           <div id={'About'} className={'h-screen text-center flex flex-col gap-6 justify-center items-center'}>
               <p className={'text-[2rem] font-bold'}>About</p>
