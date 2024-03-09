@@ -79,7 +79,7 @@ export default function ContactForm() {
     };
 
     return (
-        <Card className={'border-border pt-4 h-max w-1/2'}>
+        <Card className={'border-border pt-4 h-max w-full md:w-1/2'}>
             <Form {...form}>
                 <form
                     onSubmit={form.handleSubmit(handleSubmit)}
