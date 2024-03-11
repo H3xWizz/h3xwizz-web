@@ -48,14 +48,16 @@ export async function getRepos() {
         const data: Project[] = []
 
         fetched.map((repo: any) => {
-            data.push({
-                id: repo.id,
-                name: repo.name,
-                description: repo.description ?? "",
-                url: repo.html_url,
-                updatedAt: repo.updated_at as string,
-                language: repo.language ?? "None"
-            })
+            if (repo.name !== 'H3xWizz') {
+                data.push({
+                    id: repo.id,
+                    name: repo.name,
+                    description: repo.description ?? "",
+                    url: repo.html_url,
+                    updatedAt: repo.updated_at as string,
+                    language: repo.language ?? "None"
+                })
+            }
         })
 
         return {
